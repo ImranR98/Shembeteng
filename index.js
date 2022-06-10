@@ -51,5 +51,4 @@ const mainButtonClicked = () => {
 window.onload = () => {
     showOutput()
     onInputChanged()
-    
 }
