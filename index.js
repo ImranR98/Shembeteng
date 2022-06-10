@@ -1,1 +1,1 @@
-console.log(ambatize('Joto', 1))
+console.log(shembeteng('Joto', 1))

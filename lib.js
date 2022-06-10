@@ -4,7 +4,7 @@ const isVowel = (char) => vowels.has(char.toLowerCase())
 
 const isWhiteSpace = (str) => /^\s$/g.test(str)
 
-const ambatizeWord = (word, strength) => {
+const shembetengWord = (word, strength) => {
 	if (strength < 1) strength = 1
 	if (strength > 5) strength = 5
 	let finalWord = ''
@@ -27,9 +27,9 @@ const ambatizeWord = (word, strength) => {
 	return finalWord
 }
 
-const ambatize = (str, strength) => str.replace(/\s/g, ' ').split(' ').map(word => ambatizeWord(word, strength)).join(' ')
+const shembeteng = (str, strength) => str.replace(/\s/g, ' ').split(' ').map(word => shembetengWord(word, strength)).join(' ')
 
-const deambatize = (str) => {
+const deshembeteng = (str) => {
 	let finalString = ''
 	for (let i = 0; i < str.length; i++) {
 		finalString += str[i]
@@ -38,7 +38,7 @@ const deambatize = (str) => {
 		- Not the first or within the last 6 in the string
 		- Not the first in a word (not preceeded by whitespace)
 		- A vowel
-		- Next 5 chars are in the expected ambatized pattern, followed by non-whitespace
+		- Next 5 chars are in the expected shembetengd pattern, followed by non-whitespace
 		Then skip the next 6 chars
 		*/
 		if (
