@@ -27,7 +27,7 @@ const shembetengifyWord = (word, strength) => {
 	return finalWord
 }
 
-const shembetengify = (str, strength) => str.replace(/\s/g, ' ').split(' ').map(word => shembetengifyWord(word, strength)).join(' ')
+const shembetengify = (str, strength) => str.split('\n').map(line => line.replace(/\s/g, ' ')).join('\n').split(' ').map(word => shembetengifyWord(word, strength)).join(' ')
 
 const deshembetengify = (str) => {
 	let finalString = ''
