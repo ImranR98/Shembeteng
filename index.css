@@ -1,7 +1,28 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.footer a {
+  text-decoration: none;
+  letter-spacing: 0.25rem;
+  font-weight: bold;
+}
+
 @media (prefers-color-scheme: dark) {
   html, body, .card, .form-select, .form-control {
-    background-color: #202020 !important;
     color: white !important;
     border-color: #444444 !important;
+  }
+
+  html, body {
+    background-color: #202020 !important;
+  }
+
+  .card, .form-select, .form-control {
+    background-color: #292929 !important;
+  }
+
+  .form-select:disabled {
+    background-color: #202020 !important;
   }
 }

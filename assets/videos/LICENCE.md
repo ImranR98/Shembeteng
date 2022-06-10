@@ -1,0 +1,1 @@
+Video files in this directory belong to their respective copyright holders and are not covered by the software repository license.

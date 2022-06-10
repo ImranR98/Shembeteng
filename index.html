@@ -10,36 +10,41 @@
   <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   <div class="container mt-3 mb-3">
     <div class="row justify-content-between mb-3">
       <div class="col">
         <h1>Shembeteng</h1>
       </div>
       <div class="col-auto d-flex align-items-center">
-        <button type="button" class="btn btn-outline-secondary"><b>?</b></button>
+        <a type="button" class="btn btn-outline-secondary" href="./assets/videos/2022-06-10-04-00-A.mp4"
+          target="_blank"><b>?</b></a>
       </div>
       <div class="col-auto d-flex align-items-center">
-        <button type="button" class="btn btn-outline-secondary"><b>?</b></button>
+        <a type="button" class="btn btn-outline-secondary" href="./assets/videos/2022-05-23-23-50-B.mp4"
+          target="_blank"><b>?</b></a>
       </div>
       <div class="col-auto d-flex align-items-center">
-        <button type="button" class="btn btn-outline-secondary"><b>?</b></button>
+        <a type="button" class="btn btn-outline-secondary" href="./assets/videos/2022-05-17-00-19-C.mp4"
+          target="_blank"><b>?</b></a>
       </div>
     </div>
 
     <div class="row mb-3">
       <div class="col">
         <div class="form-floating">
-          <select class="form-select" id="modeSelect" aria-label="Floating label select example">
+          <select class="form-select" id="modeSelect" aria-label="Choose Shembeteng-ification mode"
+            onchange="onInputChanged()">
             <option value="1">Shembetengisha</option>
-            <option value="2">De-shembetengisha</option>
+            <option value="2">Toa Shembeteng</option>
           </select>
           <label for="modeSelect">Shembeteng?</label>
         </div>
       </div>
       <div class="col">
         <div class="col form-floating">
-          <select class="form-select" id="strengthSelect" aria-label="Floating label select example">
+          <select class="form-select" id="strengthSelect" aria-label="Choose Shembeteng-ification strength"
+            onchange="onInputChanged()">
             <option value="1">Kawaida</option>
             <option value="2">Ukwaju</option>
             <option value="3">Pili Pili</option>
@@ -52,18 +57,27 @@
     </div>
 
     <div class="form-floating mb-3">
-      <textarea class="form-control" id="inputTextarea"></textarea>
-      <label for="inputTextarea">Andika Hapa</label>
+      <textarea class="form-control" id="inputTextArea" onchange="onInputChanged()"
+        onkeyup="onInputChanged()"></textarea>
+      <label id="inputTextAreaLabel" for="inputTextArea"></label>
     </div>
 
     <div class="d-grid mb-3">
-      <button type="button" class="btn btn-primary" id="startButton">Shembetengisha!</button>
+      <button type="button" class="btn btn-primary" id="mainButton" onclick="mainButtonClicked()"></button>
     </div>
 
-    <div class="card">
-      <p></p>
+    <div class="card" id="outputCard">
+      <div class="card-body">
+        <span id="output"></span>
+      </div>
     </div>
 
+  </div>
+
+  <div class="mt-auto footer mb-3">
+    <div class="container d-flex justify-content-center">
+      <small><a href="https://github.com/ImranR98/Shembeteng" class="link-secondary" target="_blank">&lt;/&gt;</a></small>
+    </div>
   </div>
 
   <script src="./bootstrap/js/bootstrap.min.js"></script>

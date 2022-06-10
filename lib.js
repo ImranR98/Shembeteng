@@ -4,7 +4,7 @@ const isVowel = (char) => vowels.has(char.toLowerCase())
 
 const isWhiteSpace = (str) => /^\s$/g.test(str)
 
-const shembetengWord = (word, strength) => {
+const shembetengifyWord = (word, strength) => {
 	if (strength < 1) strength = 1
 	if (strength > 5) strength = 5
 	let finalWord = ''
@@ -27,9 +27,9 @@ const shembetengWord = (word, strength) => {
 	return finalWord
 }
 
-const shembeteng = (str, strength) => str.replace(/\s/g, ' ').split(' ').map(word => shembetengWord(word, strength)).join(' ')
+const shembetengify = (str, strength) => str.replace(/\s/g, ' ').split(' ').map(word => shembetengifyWord(word, strength)).join(' ')
 
-const deshembeteng = (str) => {
+const deshembetengify = (str) => {
 	let finalString = ''
 	for (let i = 0; i < str.length; i++) {
 		finalString += str[i]
