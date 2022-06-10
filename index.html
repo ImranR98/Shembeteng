@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambatize</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container mt-3 mb-3">
+    <div class="row justify-content-between mb-3">
+      <div class="col">
+        <h1>Ambatize</h1>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <button type="button" class="btn btn-outline-secondary"><b>?</b></button>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <button type="button" class="btn btn-outline-secondary"><b>?</b></button>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <button type="button" class="btn btn-outline-secondary"><b>?</b></button>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating">
+          <select class="form-select" id="modeSelect" aria-label="Floating label select example">
+            <option value="1">Ambatize</option>
+            <option value="2">De-ambatize</option>
+          </select>
+          <label for="modeSelect">Ambatize?</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col form-floating">
+          <select class="form-select" id="strengthSelect" aria-label="Floating label select example">
+            <option value="1">Kawaida</option>
+            <option value="2">Ukwaju</option>
+            <option value="3">Pili Pili</option>
+            <option value="4">HABANERO</option>
+            <option value="5">KICHAA</option>
+          </select>
+          <label for="strengthSelect">Jombototo</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" id="inputTextarea"></textarea>
+      <label for="inputTextarea">Andika Hapa</label>
+    </div>
+
+    <div class="d-grid mb-3">
+      <button type="button" class="btn btn-primary" id="startButton">Ambatize!</button>
+    </div>
+
+    <div class="card">
+      <p></p>
+    </div>
+
+  </div>
+
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
