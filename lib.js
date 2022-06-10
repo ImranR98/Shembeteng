@@ -2,7 +2,7 @@ const vowels = new Map([['a', true],['e', true],['i', true],['o', true],['u', tr
 
 const isVowel = (char) => vowels.has(char.toLowerCase())
 
-const isWhiteSpace = (str) => /^\s$/g.test(str)
+const isLetter = (char) => char.length === 1 && char.match(/[a-z]/i)
 
 const shembetengifyWord = (word, strength) => {
 	if (strength < 1) strength = 1
@@ -12,7 +12,7 @@ const shembetengifyWord = (word, strength) => {
 	let skippedCount = 0
 	for (let i = word.length - 1; i >= 0; i--) {
 		let toPrepend = word[i]
-		if (i != word.length - 1 && i != 0 && isVowel(word[i])) {
+		if (i != word.length - 1 && i != 0 && isVowel(word[i]) && isLetter(word[i-1]) && isLetter(word[i+1])) {
 			if (useNextCandidate) {
 				toPrepend = word[i] + 'mb' + word[i] + 't' + word[i]
 				skippedCount = 0
@@ -36,15 +36,15 @@ const deshembetengify = (str) => {
 		/*
 		If the current char is:
 		- Not the first or within the last 6 in the string
-		- Not the first in a word (not preceeded by whitespace)
+		- Not the first in a word (is preceeded by a letter)
 		- A vowel
-		- Next 5 chars are in the expected shembetengd pattern, followed by non-whitespace
+		- Next 5 chars are in the expected shembeteng pattern, followed by non-whitespace
 		Then skip the next 6 chars
 		*/
 		if (
 			i != 0 &&
 			i < str.length - 6 &&
-			!isWhiteSpace(str[i-1]) &&
+			isLetter(str[i-1]) &&
 			isVowel(str[i]) &&
 			(
 				str[i+1].toLowerCase() == 'm' &&
@@ -52,7 +52,7 @@ const deshembetengify = (str) => {
 				str[i+3].toLowerCase() == str[i].toLowerCase() &&
 				str[i+4].toLowerCase() == 't' &&
 				str[i+5].toLowerCase() == str[i].toLowerCase() &&
-				!isWhiteSpace(str[i+6])
+				isLetter(str[i+6])
 			)
 		) {
 			i += 5
