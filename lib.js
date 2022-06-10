@@ -4,6 +4,8 @@ const isVowel = (char) => vowels.has(char.toLowerCase())
 
 const isLetter = (char) => char.length === 1 && char.match(/[a-z]/i)
 
+const hasUpperCase = (str) => str.match(/[A-Z]/)
+
 const shembetengifyWord = (word, strength) => {
 	if (strength < 1) strength = 1
 	if (strength > 5) strength = 5
@@ -14,7 +16,7 @@ const shembetengifyWord = (word, strength) => {
 		let toPrepend = word[i]
 		if (i != word.length - 1 && i != 0 && isVowel(word[i]) && isLetter(word[i-1]) && isLetter(word[i+1])) {
 			if (useNextCandidate) {
-				toPrepend = word[i] + 'mb' + word[i] + 't' + word[i]
+				toPrepend = hasUpperCase(word[i]) ? word[i] + 'MB' + word[i] + 'T' + word[i] : word[i] + 'mb' + word[i] + 't' + word[i]
 				skippedCount = 0
 			} else {
 				skippedCount++
