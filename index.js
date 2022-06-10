@@ -1,3 +1,5 @@
+let justProcessed = false
+
 const showOutput = (str = undefined) => {
     if (!str) str = ''
     const outputCard = document.getElementById('outputCard')
@@ -30,7 +32,7 @@ const changeStrengthSelectAbility = (enabled = true) => {
 
 const ifShouldShembetengify = () => document.getElementById('modeSelect').value == 1
 
-const onInputChanged = () => {
+const onInputChanged = (wasModeChange = false) => {
     const shouldShembetengify = ifShouldShembetengify()
     changeText(shouldShembetengify)
     changeStrengthSelectAbility(shouldShembetengify)
@@ -39,6 +41,13 @@ const onInputChanged = () => {
     } else {
         changeButtonAbility(false)
     }
+    if (wasModeChange && justProcessed) {
+        document.getElementById('inputTextArea').value = document.getElementById('output').innerText
+        document.getElementById('mainButton').click()
+    }
+    else {
+        justProcessed = false
+    }
 }
 
 const mainButtonClicked = () => {
@@ -46,6 +55,7 @@ const mainButtonClicked = () => {
     showOutput(ifShouldShembetengify() ? shembetengify(str, document.getElementById('strengthSelect').value) : deshembetengify(str))
     window.location = '#outputCard'
     changeButtonAbility(false)
+    justProcessed = true
 }
 
 window.onload = () => {
