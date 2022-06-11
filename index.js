@@ -58,6 +58,19 @@ const mainButtonClicked = () => {
     justProcessed = true
 }
 
+const webShare = () => {
+    const page = window.location.host ? window.location.protocol + '//' + window.location.host : window.location.href
+    const title = 'Shembeteng'
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            url: page
+        }).catch(console.error);
+    } else {
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURI(page)}&hashtags=${encodeURIComponent(title)}`, '_blank')
+    }
+}
+
 window.onload = () => {
     showOutput()
     onInputChanged()
